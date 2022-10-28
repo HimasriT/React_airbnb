@@ -11,3 +11,152 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.topnavbar {
+  color: black;
+  background-color: rgb(97, 136, 208);
+  width: 100%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  /* Height of the footer */
+  background: white;
+}
+
+#btnGroupAddon {
+  background-color: orange;
+}
+
+.linkHover {
+  text-decoration: none;
+  color: white;
+}
+
+.linkHover:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.propertyCard {
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.row1 {
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.navbar-item {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.cardcustom {
+  box-shadow: 0px 4px 8px 0px #757575;
+  border-radius: 20px;
+  margin-left: 13%;
+  margin-right: 10%;
+  background-color: #b25353;
+  width: 80%;
+  height: 100%;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: -100px;
+}
+
+.carousel-indicators button {
+  cursor: pointer;
+  border-radius: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 0.5;
+  margin: 5px !important;
+}
+
+.custcarosel {
+  margin-left: 0%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.carousel-indicators button.active {
+  opacity: 1;
+  width: 30px !important;
+  height: 30px !important;
+  margin-top: 0px !important;
+  border: 2px solid #fff;
+}
+
+.div img {
+  width: auto;
+  height: auto;
+}
+
+#cardimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.social-connect {
+  background-color: #df4b37;
+  color: #fff;
+  font-size: 20px
+}
+
+.social-connect {
+  padding: 3px 0px 3px 3px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #E0E0E0
+}
+
+.social-connect:hover {
+  background-color: #EEEEEE
+}
+
+picture {
+  display: block;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.outercard {
+  margin-top: 2%;
+  height: 100%;
+  margin-right: 0%;
+  margin-left: 0%;
+}
+
+.innercard {
+  margin-top: 0%;
+  background: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: blur(30px);
+  height: fit-content;
+}
