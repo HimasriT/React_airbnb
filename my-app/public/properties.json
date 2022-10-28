@@ -50,5 +50,57 @@
     "short_description": "This is our tiny home with lakefront and more.",
     "description": "Our tiny home has everything you need for a lakefront family getaway on the Richland Chambers Reservoir.",
     "bedrooms": "1"
+  },
+  {
+    "path": "property-1.png",
+    "place": "Austin, Texas",
+    "ratings": "4.8",
+    "host": "Hosted by Ray",
+    "amenities": "Wifi, Complimentary Breakfast, Pool",
+    "night_fee": "$1200 / night",
+    "cleaning_fee": "$80 / stay",
+    "service_fee": "$45 / stay",
+    "short_description": "This is a remodelled home with beautiful outdoors.",
+    "description": "Have fun with the family at this stylish fully remodeled cottage. Plenty of outdoor areas to hang out by a fire pit or dine outdoors.",
+    "bedrooms": "3"
+  },
+  {
+    "path": "property-2.png",
+    "place": "South Padre Island, Texas",
+    "ratings": "4.9",
+    "host": "Hosted by Stephanie",
+    "amenities": "Wifi, Complimentary Breakfast, Beach",
+    "night_fee": "$1500 / night",
+    "cleaning_fee": "$100 / stay",
+    "service_fee": "$50 / stay",
+    "short_description": "This is a beach house with soothing waves visible.",
+    "description": "This 3400 Square foot home delivers a high level of luxury finishes and details. Offers 1 King, 2 Queens with fulls over fulls with trundles.",
+    "bedrooms": "2"
+  },
+  {
+    "path": "property-3.png",
+    "place": "Austin, Texas",
+    "ratings": "4.6",
+    "host": "Hosted by Brandy",
+    "amenities": "Wifi, Complimentary Breakfast, Stable",
+    "night_fee": "$800 / night",
+    "cleaning_fee": "$75 / stay",
+    "service_fee": "$40 / stay",
+    "short_description": "This is a stable home with countryside feel and amenities.",
+    "description": "This place is such a hidden gem. Every single detail in the house has a purpose and was carefully thought out.",
+    "bedrooms": "4"
+  },
+  {
+    "path": "property-4.png",
+    "place": "Houston, Texas",
+    "ratings": "5.0",
+    "host": "Hosted by Ram",
+    "amenities": "Wifi, Kitchen, Complimentary Breakfast",
+    "night_fee": "$1650 / night",
+    "cleaning_fee": "$80 / stay",
+    "service_fee": "$55 / stay",
+    "short_description": "This is our tiny home with lakefront and more.",
+    "description": "Our tiny home has everything you need for a lakefront family getaway on the Richland Chambers Reservoir.",
+    "bedrooms": "1"
   }
 ]

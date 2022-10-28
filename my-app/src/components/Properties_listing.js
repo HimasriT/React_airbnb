@@ -23,9 +23,12 @@ function LayoutComponent() {
             <SearchBar
                 filterText={filterText}
                 onFilterTextChange={setFilterText} />
+            <div class="container overflow-hidden">
             <Properties 
                 filterText={filterText}
-                property={property} /> 
+                property={property} />
+            </div>
+             
         </div>
 
     );
@@ -71,9 +74,11 @@ function Properties({ property, filterText }) {
         rows.push(video);
       });
     return (
+    //    <div class="row gy-4">
         <div class="card-deck">
             {
                 rows.map((p) => (
+                    <div class ="col-md-3 ">
                     <div class="card" >
                         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -99,10 +104,12 @@ function Properties({ property, filterText }) {
                             <p class="card-text"><small class="text-muted"><b>About:</b> {p.short_description} </small></p>
                         </div>
                     </div>
+                    </div>
                 )
                 )
             }
         </div>
+    //    </div>
     );
 }
 
