@@ -160,3 +160,19 @@ picture {
   backdrop-filter: blur(30px);
   height: fit-content;
 }
+
+.end {
+  padding-left: 80%;
+}
+
+.backButton, .backButton:active {
+  margin-left: 95%;
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+.backButton:hover {
+  margin-left: 95%;
+  text-decoration: underline;
+  color: black;
+}
