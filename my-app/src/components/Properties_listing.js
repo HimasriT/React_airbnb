@@ -12,7 +12,6 @@ function LayoutComponent() {
         fetch('properties.json')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setProperty(data)
             }
             )
@@ -108,7 +107,7 @@ function SearchBar({ filterText, onFilterTextChange }) {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-group-horizontal ">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="input-group">
-                        <input type="text" value={filterText} class="form-control" placeholder="Filter..."
+                        <input type="text" value={filterText} class="form-control" placeholder="Search..."
                             aria-label="Input group example" aria-describedby="btnGroupAddon" onChange={(e) => onFilterTextChange(e.target.value)} />
                         <div class="input-group-text" id="btnGroupAddon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
