@@ -1,5 +1,6 @@
 [
   {
+    "id" : "1",
     "path": "property-1.png",
     "place": "Austin, Texas",
     "ratings": "4.8",
@@ -13,6 +14,7 @@
     "bedrooms": "3"
   },
   {
+    "id" : "2",
     "path": "property-2.png",
     "place": "Leander, Texas",
     "ratings": "4.9",
@@ -26,6 +28,7 @@
     "bedrooms": "2"
   },
   {
+    "id" : "3",
     "path": "property-3.png",
     "place": "Spring, Texas",
     "ratings": "4.6",
@@ -39,6 +42,7 @@
     "bedrooms": "4"
   },
   {
+    "id" : "4",
     "path": "property-4.png",
     "place": "Houston, Texas",
     "ratings": "5.0",
@@ -52,6 +56,7 @@
     "bedrooms": "1"
   },
   {
+    "id" : "5",
     "path": "property-2.png",
     "place": "Dallas, Texas",
     "ratings": "4.8",
@@ -65,6 +70,7 @@
     "bedrooms": "3"
   },
   {
+    "id" : "6",
     "path": "2.jpg",
     "place": "Irving, Texas",
     "ratings": "4.9",
@@ -78,6 +84,7 @@
     "bedrooms": "2"
   },
   {
+    "id" : "7",
     "path": "5.jpg",
     "place": "Denton, Texas",
     "ratings": "4.6",
@@ -91,6 +98,7 @@
     "bedrooms": "4"
   },
   {
+    "id" : "8",
     "path": "4.jpg",
     "place": "Plano, Texas",
     "ratings": "5.0",
