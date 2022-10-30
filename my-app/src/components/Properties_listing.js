@@ -25,6 +25,10 @@ function LayoutComponent() {
         return (
             <div>
                 <br />
+                <a href = "index.html">
+                <button>Back</button>
+                </a>
+                
                 <div class="container overflow-hidden">
                     <Slide
                         property={property}
@@ -47,7 +51,8 @@ function LayoutComponent() {
                         filterText={filterText}
                         property={property}
                         linkClicked={linkClicked}
-                        onlinkClicked={setClicked} />
+                        onlinkClicked={setClicked}
+                         />
                 </div>
             </div>
         );
@@ -128,7 +133,7 @@ function SearchBar({ filterText, onFilterTextChange }) {
 function Properties({ property, filterText, linkClicked, onlinkClicked }) {
     var val = filterText;
     var rows = [];
-
+  //  buttonClicked(false);
     property.forEach((video) => {
         if (
             video.place.toLowerCase().indexOf(
@@ -176,7 +181,6 @@ function Properties({ property, filterText, linkClicked, onlinkClicked }) {
                 )
             }
         </div>
-        //    </div>
     );
 }
 
