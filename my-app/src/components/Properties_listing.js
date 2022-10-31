@@ -25,10 +25,10 @@ function LayoutComponent() {
         return (
             <div>
                 <br />
-                <a href = "index.html">
-                <button>Back</button>
+                <a href="index.html">
+                    <button type="button" class="btn btn-outline-secondary" style={{ marginLeft: 95.5 + '%' }}>X</button>
                 </a>
-                
+
                 <div class="container overflow-hidden">
                     <Slide
                         property={property}
@@ -41,18 +41,18 @@ function LayoutComponent() {
     else {
         return (
             <div>
-                <br/>
+                <br />
                 <SearchBar
                     filterText={filterText}
                     onFilterTextChange={setFilterText} />
-                <br/>
+                <br />
                 <div class="container overflow-hidden">
                     <Properties
                         filterText={filterText}
                         property={property}
                         linkClicked={linkClicked}
                         onlinkClicked={setClicked}
-                         />
+                    />
                 </div>
             </div>
         );
@@ -70,14 +70,22 @@ function Slide({ property, linkClicked }) {
     return (
         rows.map((p) => (
             <div class="card" id={p.id} style={{ marginBottom: 5 + 'em', minHeight: 24 + 'em' }} >
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" >
+                <div id="carouselExampleSlides" class="carousel slide" data-ride="carousel" >
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="card-img-top d-block w-100" src={p.path} alt="Card image cap" />
+                            <img class="card-img-top d-block w-100" src={p.path} alt="First slide" />
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="property-1.1.png" alt="Second slide" />
+                            <img class="d-block w-100" src={p.path2} alt="Second slide" />
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlides" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlides" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden"></span>
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -133,7 +141,7 @@ function SearchBar({ filterText, onFilterTextChange }) {
 function Properties({ property, filterText, linkClicked, onlinkClicked }) {
     var val = filterText;
     var rows = [];
-  //  buttonClicked(false);
+    //  buttonClicked(false);
     property.forEach((video) => {
         if (
             video.place.toLowerCase().indexOf(
@@ -153,10 +161,10 @@ function Properties({ property, filterText, linkClicked, onlinkClicked }) {
                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" >
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="card-img-top d-block w-100" id={p.id} src={p.path} alt="Card image cap" onClick={(e) => onlinkClicked(e.target.id)} />
+                                        <img class="card-img-top d-block w-100" id={p.id} src={p.path} alt="First slide" onClick={(e) => onlinkClicked(e.target.id)} />
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="property-1.1.png" alt="Second slide" />
+                                        <img class="card-img-top d-block w-100" src={p.path2} alt="Second slide" />
                                     </div>
                                 </div>
                             </div>

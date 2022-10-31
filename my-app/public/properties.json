@@ -2,6 +2,7 @@
   {
     "id" : "1",
     "path": "property-1.png",
+    "path2": "property-2.png",
     "place": "Austin, Texas",
     "ratings": "4.8",
     "host": "Hosted by Ray",
@@ -16,6 +17,7 @@
   {
     "id" : "2",
     "path": "property-2.png",
+    "path2": "2.jpg",
     "place": "Leander, Texas",
     "ratings": "4.9",
     "host": "Hosted by Stephanie",
@@ -30,6 +32,7 @@
   {
     "id" : "3",
     "path": "property-3.png",
+    "path2": "3.jpg",
     "place": "Spring, Texas",
     "ratings": "4.6",
     "host": "Hosted by Brandy",
@@ -44,6 +47,7 @@
   {
     "id" : "4",
     "path": "property-4.png",
+    "path2": "4.jpg",
     "place": "Houston, Texas",
     "ratings": "5.0",
     "host": "Hosted by Ram",
@@ -58,6 +62,7 @@
   {
     "id" : "5",
     "path": "property-2.png",
+    "path2": "5.jpg",
     "place": "Dallas, Texas",
     "ratings": "4.8",
     "host": "Hosted by Ray",
@@ -72,6 +77,7 @@
   {
     "id" : "6",
     "path": "2.jpg",
+    "path2": "property-1.png",
     "place": "Irving, Texas",
     "ratings": "4.9",
     "host": "Hosted by Stephanie",
@@ -86,6 +92,7 @@
   {
     "id" : "7",
     "path": "5.jpg",
+    "path2": "property-2.png",
     "place": "Denton, Texas",
     "ratings": "4.6",
     "host": "Hosted by Brandy",
@@ -100,6 +107,7 @@
   {
     "id" : "8",
     "path": "4.jpg",
+    "path2": "property-3.png",
     "place": "Plano, Texas",
     "ratings": "5.0",
     "host": "Hosted by Ram",
