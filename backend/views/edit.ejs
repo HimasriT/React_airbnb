@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<div class="container">
+<form action="/properties/edit/<%=pr._id%>" method="POST">
+    <div class="form-group col-md-2">
+    <label>Title</label>
+    <input type="text" id="title" name="title" class="form-control" value="<%=pr.place%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>Host</label>
+    <input type="text" id="host" name="host" class="form-control" value="<%=pr.host%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>Amenities</label>
+    <input type="text" id="amenities" name="amenities" class="form-control" value="<%=pr.amenities%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>Ratings</label>
+    <input type="text" id="ratings" name="ratings" class="form-control" value="<%=pr.ratings%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>night_fee</label>
+    <input type="text" id="night_fee" name="night_fee" class="form-control" value="<%=pr.night_fee%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>cleaning_fee</label>
+    <input type="text" id="cleaning_fee" name="cleaning_fee" class="form-control" value="<%=pr.cleaning_fee%>">
+    </div>
+    <div class="form-group col-md-2">
+    <label>service_fee</label>
+    <input type="text" id="service_fee" name="service_fee" class="form-control" value="<%=pr.service_fee%>">
+    </div>
+    
+    <div class="form-group col-md-2">
+    <label>Bedrooms</label>
+    <input type="text" id="bedrooms" name="bedrooms" class="form-control" value="<%=pr.bedrooms%>">
+    </div>
+    <div class="form-group col-md-2">
+        <label>Image name</label>
+        <input type="text" id="image" name="image" class="form-control" value="<%=pr.path%>">
+    <div class="form-group col-md-2">
+    <button type="submit" id="add" class="btn btn-outline-dark">Edit Property</button>
+    </div>
+
+</form>
+
+
+</div>
+
+
+<%- include('partials/footer') %>
