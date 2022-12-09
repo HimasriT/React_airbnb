@@ -28,8 +28,18 @@ router.get('/', function(req, res) {
 	});
 });
 
+router.get('/userid', function(req, res) {
+	console.log("inside this");
+	var collection = db.get('properties');
+	collection.find({}, function(err, props){
+		if (err) throw err;
+		//res.json(props);
+	  	res.render('index.ejs' ,{ props : props})
+	});
+});
+
   router.get('/new', function(req, res) {
-      res.render('new');
+      res.render('new.ejs');
   });
   
   router.get('/properties', function(req, res) {
@@ -38,7 +48,7 @@ router.get('/', function(req, res) {
       collection.find({}, function(err, props){
           if (err) throw err;
           //res.json(videos);
-            res.render('index',{ props : props})
+            res.render('index.ejs',{ props : props})
       });
   });
   
@@ -58,9 +68,7 @@ router.get('/', function(req, res) {
           description:req.body.description
       }, function(err, pr){
           if (err) throw err;
-          // if insert is successfull, it will return newly inserted object
-            //res.json(video);
-          res.redirect('/');
+          res.redirect('/properties/userid');
       });
   });
   
@@ -68,10 +76,42 @@ router.get('/', function(req, res) {
       var collection = db.get('properties');
       collection.find({ _id: req.params.id }, function(err, result){
           if (err) throw err;
-          //  res.render('show', { pr : result[0] });
-          res.json(result);
+            res.render('show.ejs', { pr : result[0] });
+          //res.json(result);
       });
   });
+
+  router.post('/properties/edit/:id', function (req, res) {
+	//req.body is used to read form input
+	var collection = db.get('properties');
+	var new_record = {
+		place: req.body.title,
+		host: req.body.host,
+		path: req.body.image,
+		amenities: req.body.amenities,
+		ratings: req.body.ratings,
+		night_fee: req.body.night_fee,
+		service_fee: req.body.service_fee,
+		cleaning_fee: req.body.cleaning_fee,
+	};
+
+	collection.update({ _id: req.params.id }, { $set: new_record }, { upsert: true }, function (err, pr) {
+		if (err) throw err;
+		// if insert is successfull, it will return newly inserted object
+		//res.json(video);
+		res.redirect('/properties/userid');
+	});
+});
+
+router.delete('/properties/:id', function (req, res) {
+	var collection = db.get('properties');
+	collection.remove({ _id: req.params.id }, function (err, result) {
+		if (err) throw err;
+		res.redirect('/properties/userid');
+		//res.render('show', { pr : result[0] });
+		//res.json(result);
+	});
+});
 
 module.exports = router;
 

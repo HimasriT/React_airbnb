@@ -187,7 +187,7 @@
                                     <input type="checkbox" id="emailConsentCheckBox" name="emailConsentCheckBox" class="-input"><label for="emailConsentCheckBox" class="-label">
                                         <span class="-alt-checkbox"></span>
                                         </span>Email me with promotions</label></div>
-                                <button type="submit" class="btn btn-primary btn-block mb-2">Sign up</button>
+                                <button type="submit" class="btn btn-primary btn-block mb-2" onclick="login()">Sign up</button>
                                 <div class="text-center">
                                     <p>or sign up with:</p>
                                     <a href="#" style="text-decoration: none;"> 
@@ -223,8 +223,13 @@
                     <a class="linkHover" href="#">Terms</a>
                 </div>
             </nav>
-        </div>
-        
+        </div>   
     </body>
+    <script>
+      function login(){
+        location.href="http://localhost:9000/properties"
+      }
+    </script> 
+    
     
 </html>
