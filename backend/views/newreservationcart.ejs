@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <div class="container">
+        <form action="/properties/cart/<%=pr._id%>" method="POST">
+            <div class="form-group col-md-2">
+                <label>Check-in Date</label>
+                <input type="text" id="check_in" name="check_in" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Check-Out Date</label>
+                <input type="text" id="check_out" name="check_out" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>No_of_Days</label>
+                <div class="">
+                    <input type="number" min="1" max="100000" step="1" value="0"  name="No_of_Days" >
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Number of Persons</label>
+                <input type="text" id="no_of_persons" name="number_of_persons" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Ratings</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" value="0" class="slider" name="rating" >
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label>User_id</label>
+                <input type="text" id="user_id" name="user_id" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <button type="submit" id="add" class="btn btn-outline-dark">Add to Cart</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
