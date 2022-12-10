@@ -224,4 +224,73 @@ router.get('/properties/:id', function(req, res) {
 	});
 });
 
+router.get('/cart', function (req, res) {
+	console.log( "1");
+	var t = new URLSearchParams(req.query);
+	console.log(req.query.user_id);
+		try{
+			var collection = db.get('cart');
+		}
+		catch{
+			console.log("NO");
+		}
+		collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
+			if (err) throw err;
+			//res.json(result);
+			res.render('cartuseids.ejs', { carts: result });
+		});
+	// }
+});
+
+router.get('/cart/:id', function (req, res) {
+	var collection = db.get('cart');
+	collection.find({ _id: req.params.id }, function (err, result) {
+		if (err) throw err;
+		// res.json(result);
+		res.render('cart.ejs', { cart: result[0] });
+	});
+});
+
+router.post('/cart/edit/:id', function (req, res) {
+	//req.body is used to read form input
+	var collection = db.get('cart');
+	console.log("POST")
+	console.log(req.body);
+	var new_record = {
+		No_of_days:req.body.No_of_days,
+		Total_Cost:req.body.Total_Cost,
+		Number_of_persons:req.body.number_of_persons,
+		Property_id:req.body.property_id,
+		User_id:req.body.User_id		
+	};
+	//console.log(new_record);
+	collection.update({ _id: req.params.id }, { $set: new_record }, { upsert: true }, function (err, pr) {
+		if (err) throw err;
+		// if insert is successfull, it will return newly inserted object
+		//res.json(video);
+		res.redirect('/properties');
+	});
+	
+});
+
+router.get('/cart/:id/edit', function (req, res) {
+	var collection = db.get('cart');
+	//console.log(req.params.id );
+	collection.find({ _id: req.params.id }, function (err, result) {
+		if (err) throw err;
+		res.render('editcart.ejs', { cart: result[0] });
+		//res.json(result);
+	});
+});
+
+router.delete('/cart/:id', function (req, res) {
+	var collection = db.get('cart');
+	collection.remove({ _id: req.params.id }, function (err, result) {
+		if (err) throw err;
+		res.redirect('/properties');
+		//res.render('show', { pr : result[0] });
+		//res.json(result);
+	});
+});
+
 module.exports = router;
