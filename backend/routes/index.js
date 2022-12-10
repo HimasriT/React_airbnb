@@ -213,6 +213,7 @@ router.get('/properties/:id', function (req, res) {
 	var collection = db.get('properties');
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
+		res.render('show.ejs',{pr:result[0]});
 	});
 });
 
