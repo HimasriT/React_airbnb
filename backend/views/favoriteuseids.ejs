@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+    <div class="row">
+
+        <% favorites.forEach(function(favorite){ %>
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">User id <%= favorite.User_id %><br></h5>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            </br>
+                            Property ID: <%= favorite.Property_id %><br>
+                                </br>
+                                User ID: <%= favorite.User_id %><br>
+                                    </br>
+                                    Ratings: <%= favorite.ratings %><br>
+                                        </br>
+                        </small>
+                    </p>
+
+                    <a href="/favorties/<%= favorite._id %>" class="btn btn-outline-dark active"
+                        style="text-decoration: none; color: white">Show details</a>
+                </div>
+            </div>
+
+            <% }); %>
+
+    </div>
+
+    <p>
+        <a href="http://localhost:3000/">Back to list</a>
+    </p>
+
+
+
+    <%- include('partials/footer') %>

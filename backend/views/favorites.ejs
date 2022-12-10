@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+    <div class="container-fluid">
+
+        <h1>Favourites Page</h1>
+        <p>User id: <%= favorties.User_id %>
+        </p>
+        <p>Property id: <%= favorites.Property_id %>
+        </p>
+        <p>Ratings: favorites.ratings<%= </p>
+        <form action="/cart/<%=cart._id%>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete Favorite</button>
+        </form>
+        <p>
+            <a href="http://localhost:3000/">Back to list</a>
+        </p>
+    </div>
+    <%- include('partials/footer') %>
