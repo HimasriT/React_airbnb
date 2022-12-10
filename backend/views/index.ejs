@@ -1,55 +1,38 @@
 <%- include('partials/header') %>
-
-
-    <div class="container">
-
-      <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Property Listing</h1>
-          <p class="col-md-8 fs-4">All Properties Listings added by Host</p>
-          <a href="/properties/new" class="btn btn-primary btn-lg" type="button">Add Property</a>
-          <a href="http://localhost:3000/" class="btn btn-primary btn-lg" type="button">Back to site</a>
-        </div>
+  <div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Property Listing</h1>
+        <p class="col-md-8 fs-4">All Properties Listings added by Host</p>
+        <a href="/properties/new" class="btn btn-primary btn-lg" type="button">Add Property</a>
+        <a href="http://localhost:3000/" class="btn btn-primary btn-lg" type="button">Back to site</a>
       </div>
+    </div>
 
-
-
-      <div class="row">
-
-        <% props.forEach(function(pr){ %>
-
+    <div class="row">
+      <% props.forEach(function(pr){ %>
         <div class="card" style="width: 18rem;">
           <img src="images/<%= pr.path %>" class="thumbnail" alt="..." style="width:200px; height:200px">
           <div class="card-body">
-            <h5 class="card-title"><%= pr.place %></h5>
+            <h5 class="card-title">
+              <%= pr.name%> - <%= pr.city_name %>
+            </h5>
 
             <p class="card-text">
               <small class="text-muted">
-              <%= pr.host %><br>
-              </br>
-              <%= pr.night_fee %><br>
-              </br>
-              <%= pr.host %><br>
-              </br>
-              <%= pr.amenities %><br>
+                <%= pr.host %><br>
+                  </br>
+                  <%= pr.night_fee %><br>
+                    </br>
+                    <%= pr.host %><br>
+                      </br>
+                      <%= pr.amenities %><br>
               </small>
             </p>
-
             <a href="/properties/<%= pr._id %>" class="btn btn-primary">Show details</a>
           </div>
         </div>
-
         <% }); %>
-
-
-      </div>
-
-      <%- include('partials/footer') %>
-  
-
-
     </div>
-
-
-
-
+    <%- include('partials/footer') %>
+  </div>

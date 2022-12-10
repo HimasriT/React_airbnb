@@ -1,35 +1,46 @@
 <%- include('partials/header') %>
 
-<div class="container-fluid">
+    <div class="container-fluid">
 
-    <h1>Property details</h1>
+        <h1>Property details</h1>
 
-    <p><img src="/images/<%= pr.path %>"/></p>
-    <p>Title: <%= pr.place %></p>
-    <p>Ratings: <%= pr.ratings %></p>
-    <p>Host: <%= pr.host %></p>
-    <p>Amenities: <%= pr.amenities %></p>
-    <p>Night_fee: <%= pr.night_fee %></p>
-    <p>Cleaning_fee: <%= pr.cleaning_fee %></p>
-    <p>Service fee: <%= pr.service_fee %></p>
-    <p>No_of_bedrooms: <%= pr.bedrooms %></p>
-    <p>Short_Description: <%= pr.short_description %></p>
-    <p>Description: <%= pr.description %></p>
+        <p><img src="/images/<%= pr.path %>" /></p>
+        <p>Name: <%= pr.name %>
+        </p>
+        <p>City Name: <%= pr.city_name %>
+        </p>
+        <p>Ratings: <%= pr.ratings %>
+        </p>
+        <p>Host: <%= pr.host %>
+        </p>
+        <p>Amenities: <%= pr.amenities %>
+        </p>
+        <p>Night Fee: <%= pr.night_fee %>
+        </p>
+        <p>Cleaning Fee: <%= pr.cleaning_fee %>
+        </p>
+        <p>Service Fee: <%= pr.service_fee %>
+        </p>
+        <p>No of Bedrooms: <%= pr.bedrooms %>
+        </p>
+        <p>Short Description: <%= pr.short_description %>
+        </p>
+        <p>Description: <%= pr.description %>
+        </p>
 
-	<a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id%>/edit" role = "button"> Edit property</a>    
+        <a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id%>/edit" role="button"> Edit
+            property</a>
 
-    <form action="/properties/<%=pr._id %>?_method=DELETE" method="POST">
+        <form action="/properties/<%=pr._id %>?_method=DELETE" method="POST">
 
-    <button type="submit" class="btn btn-danger">Delete property</button>
+            <button type="submit" class="btn btn-danger">Delete property</button>
 
-    </form>
-    
-<p>
-<a href="/properties">Back to list</a>
+        </form>
 
-</p>
-</div>
+        <p>
+            <a href="/properties">Back to list</a>
 
+        </p>
+    </div>
 
-
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>

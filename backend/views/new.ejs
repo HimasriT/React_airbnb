@@ -1,67 +1,67 @@
 <%- include('partials/header') %>
 
-<div class="container">
-<form action="/properties" method="POST">
-    <div class="form-group col-md-2">
-    <label>Title</label>
-    <input type="text" id="title" name="title" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>Host</label>
-    <input type="text" id="host" name="host" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>HostID</label>
-    <input type="text" id="host_id" name="host_id" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>Amenities</label>
-    <input type="text" id="amenities" name="amenities" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>Ratings</label>
-    <input type="text" id="ratings" name="ratings" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>night_fee</label>
-    <input type="text" id="night_fee" name="night_fee" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>cleaning_fee</label>
-    <input type="text" id="cleaning_fee" name="cleaning_fee" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>service_fee</label>
-    <input type="text" id="service_fee" name="service_fee" class="form-control">
-    </div>
-    
-    <div class="form-group col-md-2">
-    <label>Bedrooms</label>
-    <input type="text" id="bedrooms" name="bedrooms" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-        <label>Image name</label>
-        <input type="text" id="image" name="image" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>Short Description</label>
-    <textarea id="short_description" name="short_description" class="form-control">
-    </textarea>
-    </div>
+    <div class="container">
+        <form action="/properties" method="POST">
+            <div class="form-group col-md-2">
+                <label>Name</label>
+                <input type="text" id="name" name="name" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>City Name</label>
+                <input type="text" id="city_name" name="city_name" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Host</label>
+                <input type="text" id="host" name="host" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Host ID</label>
+                <input type="text" id="host_id" name="host_id" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Amenities</label>
+                <input type="text" id="amenities" name="amenities" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Ratings</label>
+                <input type="text" id="ratings" name="ratings" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Night Fee</label>
+                <input type="text" id="night_fee" name="night_fee" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Cleaning Fee</label>
+                <input type="text" id="cleaning_fee" name="cleaning_fee" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Service Fee</label>
+                <input type="text" id="service_fee" name="service_fee" class="form-control">
+            </div>
 
-    <div class="form-group col-md-2">
-    <label>Description</label>
-    <textarea id="description" name="description" class="form-control">
-    </textarea>
-    </div>
-    <div class="form-group col-md-2">
-    <button type="submit" id="add" class="btn btn-outline-dark">Add Property</button>
-    </div>
-
-</form>
-
-
-</div>
+            <div class="form-group col-md-2">
+                <label>Bedrooms</label>
+                <input type="text" id="bedrooms" name="bedrooms" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Image Name</label>
+                <input type="text" id="image" name="image" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Short Description</label>
+                <textarea id="short_description" name="short_description" class="form-control"></textarea>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Description</label>
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="submit" id="add" class="btn btn-outline-dark">Add Property</button>
+            </div>
+        </form>
 
 
-<%- include('partials/footer') %>
+    </div>
+
+
+    <%- include('partials/footer') %>
