@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+  <div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Favorite property Details</h1>
+        <a href="http://localhost:3000" class="btn btn-primary btn-lg" type="button">Back to HomePage</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <% props.forEach(function(pr){ %>
+        <div class="card" style="width: 18rem;">
+          <img src="images/<%= pr.path %>" class="thumbnail" alt="..." style="width:200px; height:200px">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= pr.name%> - <%= pr.city_name %>
+            </h5>
+            <p class="card-text">
+              <small class="text-muted">
+                <%= pr.host %><br>
+                  </br>
+                  <%= pr.night_fee %><br>
+                    </br>
+                    <%= pr.host %><br>
+                      </br>
+                      <%= pr.amenities %><br>
+              </small>
+            </p>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+    <%- include('partials/footer') %>
+  </div>

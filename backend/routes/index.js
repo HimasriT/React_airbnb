@@ -113,7 +113,7 @@ router.get('/properties', function (req, res) {
 	}
 	else {
 		if (t == 0) {
-			collection.find({ host_id: user_id }, function (err, result) {
+			collection.find({ host_id: user_id },{availability:"true"}, function (err, result) {
 				if (err) throw err;
 				res.render('index.ejs', { props: result });
 			});
@@ -123,7 +123,7 @@ router.get('/properties', function (req, res) {
 			user_id = String(req.query.user_id);
 			console.log("Inside else");
 			console.log(user_id);
-			collection.find({ host_id: String(req.query.user_id) }, function (err, result) {
+			collection.find({ host_id: String(req.query.user_id) },{availability:"true"}, function (err, result) {
 				if (err) throw err;
 				res.render('index.ejs', { props: result });
 			});
@@ -131,6 +131,30 @@ router.get('/properties', function (req, res) {
 
 	}
 
+});
+
+router.get('/properties/fav', function (req, res) {
+	var t = new URLSearchParams(req.query);
+	console.log(t);
+	if (t == 0) {
+		console.log("No query value");
+		console.log(req.query);
+		var collection = db.get('properties');
+		collection.find({}, function (err, props) {
+			//res.json(videos);
+			if (err) throw err;
+			res.render('favdisplay.ejs', { props: props })
+		});
+	}
+	else {
+		console.log("yes");
+		console.log(typeof (String(req.query.prop_id)));
+		var collection = db.get('properties');
+		collection.find({ id : String(req.query.prop_id) }, function (err, result) {
+			if (err) throw err;
+			res.render('favdisplay.ejs', { props: result });
+		});
+	}
 });
 
 router.post('/properties', [

@@ -9,10 +9,6 @@ var db = monk('127.0.0.1:27017/Airbnb', function (err, db) {
 });
 
 router.get('/', function (req, res, next) {
-    res.redirect('/properties');
-});
-
-router.get('/favorites', function (req, res) {
     var t = new URLSearchParams(req.query);
     try {
         var collection = db.get('favorites');
@@ -22,9 +18,13 @@ router.get('/favorites', function (req, res) {
     }
     collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
         if (err) throw err;
-        res.render('favoriteuseids', { favorties: result });
+        res.render('favoriteuseids.ejs', { favorites: result });
     });
 });
+
+/*router.get('/favorites', function (req, res) {
+    
+}); */
 
 router.get('/favorites/:id', function (req, res) {
     var collection = db.get('favorties');
@@ -66,6 +66,15 @@ router.post('/favorites', function (req, res) {
 });
 
 router.delete('/favorties/:id', function (req, res) {
+    var collection = db.get('favorites');
+    collection.remove({ _id: req.params.id }, function (err, result) {
+        if (err) throw err;
+        res.redirect('/favorties');
+    });
+});
+
+router.get('/favorites/deletefav/:id', function (req, res) {
+    console.log("Entered into delete");
     var collection = db.get('favorites');
     collection.remove({ _id: req.params.id }, function (err, result) {
         if (err) throw err;
