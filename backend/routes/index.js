@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const { check, validationResult } = require('express-validator');
+
 var methodOveride = require('method-override');
 
 var user_id = "#";
@@ -131,25 +133,37 @@ router.get('/properties', function (req, res) {
 
 });
 
-router.post('/properties', function (req, res) {
+router.post('/properties', [
+	check('name', 'Please enter a property name')
+		.isEmail().isLength({ min: 1 })
+	// check('name', 'Name length should be 10 to 20 characters')
+	// 	.isLength({ min: 10, max: 20 }),
+	// check('mobile', 'Mobile number should contains 10 digits')
+	// 	.isLength({ min: 10, max: 10 }),
+	// check('password', 'Password length should be 8 to 10 characters')
+	// 	.isLength({ min: 8, max: 10 })
+], function (req, res) {
 	var collection = db.get('properties');
 	collection.insert({
 		name: req.body.name,
 		city_name: req.body.city_name,
-		host: req.body.host,
+		host: "Hosted by " + req.body.host,
 		path: req.body.image,
 		path2: req.body.image,
 		amenities: req.body.amenities,
-		ratings: req.body.ratings,
-		night_fee: req.body.night_fee,
-		service_fee: req.body.service_fee,
-		cleaning_fee: req.body.cleaning_fee,
+		ratings: req.body.ratings.toFixed(1),
+		night_fee: "$" + req.body.night_fee + " / night",
+		service_fee: "$" + req.body.service_fee + " / stay",
+		cleaning_fee: "$" + req.body.cleaning_fee + " / stay",
 		short_description: req.body.short_description,
 		description: req.body.description,
 		host_id: req.body.host_id,
 		bedrooms: req.body.bedrooms
 	}, function (err, pr) {
-		if (err) throw err;
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			res.json(errors)
+		}
 		res.redirect('/properties');
 	});
 });
@@ -159,14 +173,14 @@ router.post('/properties/edit/:id', function (req, res) {
 	var new_record = {
 		name: req.body.name,
 		city_name: req.body.city_name,
-		host: req.body.host,
+		host: "Hosted by " + req.body.host,
 		path: req.body.image,
 		path2: req.body.image,
 		amenities: req.body.amenities,
 		ratings: req.body.ratings,
-		night_fee: req.body.night_fee,
-		service_fee: req.body.service_fee,
-		cleaning_fee: req.body.cleaning_fee,
+		night_fee: "$" + req.body.night_fee + " / night",
+		service_fee: "$" + req.body.service_fee + " / stay",
+		cleaning_fee: "$" + req.body.cleaning_fee + " / stay",
 		short_description: req.body.short_description,
 		description: req.body.description,
 		host_id: req.body.host_id,

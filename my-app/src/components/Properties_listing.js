@@ -99,11 +99,11 @@ function Slide({ property, linkClicked }) {
                         <br />
                         <b>Amenities</b> : {p.amenities}
                         <br />
-                        <b>Per Night Fee</b> : {p.night_fee}
+                        <b>Night Fee</b> : {p.night_fee}
                         <br />
-                        <b>Cleaning Fee per stay</b> : {p.cleaning_fee}
+                        <b>Cleaning Fee</b> : {p.cleaning_fee}
                         <br />
-                        <b>Service Fee per stay</b> : {p.service_fee}
+                        <b>Service Fee</b> : {p.service_fee}
                         <br />
                         <b>Property Description</b> : {p.description}
                         <br />
