@@ -10,7 +10,7 @@ function LayoutComponent() {
     const [linkClicked, setClicked] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:9000/properties')
+        fetch('http://localhost:9000')
             .then(res => res.json())
             .then(data => {
                 setProperty(data)

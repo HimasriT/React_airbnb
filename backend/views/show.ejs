@@ -16,7 +16,7 @@
     <p>Short_Description: <%= pr.short_description %></p>
     <p>Description: <%= pr.description %></p>
 
-	<a class="btn btn-warning" href="/properties/<%=pr._id%>/edit" role = "button"> Edit property</a>    
+	<a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id%>/edit" role = "button"> Edit property</a>    
 
     <form action="/properties/<%=pr._id %>?_method=DELETE" method="POST">
 
@@ -25,7 +25,7 @@
     </form>
     
 <p>
-<a href="/properties/userid">Back to list</a>
+<a href="/properties">Back to list</a>
 
 </p>
 </div>
