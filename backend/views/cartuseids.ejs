@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<div class="row">
+
+    <% carts.forEach(function(cart){ %>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">User id <%= cart.User_id %><br></h5>
+          <p class="card-text">
+            <small class="text-muted">
+                </br>
+                No of Days: <%= cart.No_of_days %><br>
+                  </br>
+                  Total Cost: <%= cart.Total_Cost %><br>
+                    </br>
+                    Number of Persons: <%= cart.Number_of_persons %><br>
+                    </br>
+            </small>
+          </p>
+
+          <a href="/cart/<%= cart._id %>" class="btn btn-primary">Show details</a>
+        </div>
+      </div>
+
+      <% }); %>
+
+
+  </div>
+
+  <p>
+    <a href="/properties">Back to list</a>
+  </p>
+
+
+
+  <%- include('partials/footer') %>

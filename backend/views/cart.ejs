@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+
+<div class="container-fluid">
+
+    <h1>Shopping Cart</h1>
+    <p>No of days: <%= cart.No_of_days %></p>
+    <p>Number of persons: <%= cart.Number_of_persons %></p>
+    <p>User id: <%= cart.User_id %></p>
+    <p>Property id: <%= cart.Property_id %></p>
+    <p>Service fee: $35</p>
+    <p>Cleaning fee: $25</p>
+    <p>Tax: $40</p>
+    <p>Total Cost: $<%= cart.Total_Cost %></p>
+
+	<a class="btn btn-warning" href="/cart/<%=cart._id%>/edit" role = "button"> Edit</a>    
+
+    <form action="/cart/<%=cart._id%>?_method=DELETE" method="POST">
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    </form>
+    
+<p>
+<a href="/cart">Back to list</a>
+</p>
+</div>
+
+
+
+<%- include('partials/footer') %>
