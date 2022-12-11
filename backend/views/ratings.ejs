@@ -9,6 +9,8 @@
         </p>
         <p>Ratings: <%= ratings.ratings %>
         </p>
+        <p>Commwtns (if any): <%= ratings.comments %>
+        </p>
         <form action="/cart/<%=cart._id%>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete Rating</button>
         </form>

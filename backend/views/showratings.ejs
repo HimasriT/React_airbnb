@@ -9,6 +9,8 @@
         </p>
         <p>Ratings: <%= user.ratings %>
         </p>
+        <p>Comments (if any): <%= user.comments %>
+        </p>
         <form action="/ratings/<%=user._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete Ratings</button>
         </form>

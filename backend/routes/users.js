@@ -170,7 +170,8 @@ router.post('/ratings', function (req, res) {
 	collection.insert({
 		Property_id: req.body.Property_id,
 		User_id: req.body.user_id,
-		ratings: req.body.ratings
+		ratings: req.body.ratings,
+		comments: req.body.comments
 	}, function (err, pr) {
 		if (err) throw err;
 		res.redirect('/users/properties');
