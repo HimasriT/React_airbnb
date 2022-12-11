@@ -83,14 +83,14 @@
           message2.classList.add("invalid");
         }
       }
-    }
 
-    document.getElementById("login_btn").addEventListener("click", myFunction);
-    function myFunction() {
-      const url = "http://localhost:9000/properties?user_id=";
-      var username = document.getElementById("user_id").value;
-      const query_string = url + username;
-      location.href = query_string;
+      document.getElementById("login_btn").addEventListener("click", myFunction);
+      function myFunction() {
+        const url = "http://localhost:9000/properties?user_id=";
+        var username = document.getElementById("user_id").value;
+        const query_string = url + username;
+        location.href = query_string;
+      }
     }
   </script>
   <style>
@@ -252,12 +252,12 @@
 
                           <div class="form-outline mb-4">
                             <label class="form-label" for="user_id">Email address</label>
-                            <input type="email" id="user_id" class="form-control" size="70" required
+                            <input type="email" id="user_id" name="user_id" class="form-control" size="70" required
                               placeholder="Please enter your email address" />
                           </div>
                           <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example4">Password</label>
-                            <input type="password" id="form3Example4" class="form-control" size="70" required
+                            <label class="form-label" for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" size="70" required
                               placeholder="Please enter your password" />
                           </div>
                           <button type="submit" class="btn btn-primary btn-block mb-4" id="login_btn">
@@ -267,7 +267,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="message" style="margin-left: 5em;">
+                    <div id="message" style="margin-left: 2.5em;">
                       <p><b>Password Requirements:</b></p>
                       <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
                       <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
