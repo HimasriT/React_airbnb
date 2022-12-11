@@ -12,8 +12,6 @@ router.get('/', function (req, res, next) {
 	res.redirect('/properties');
 });
 
-
-
 router.get('/reservations/newuser', function (req, res) {
 	res.render('newuser');
 });
@@ -79,7 +77,7 @@ router.post('/reservations', function (req, res) {
 	});
 });
 
-router.delete('/reservations/:id', function (req, res) {
+router.post('/reservations/:id', function (req, res) {
 	var collection = db.get('reservations');
 	collection.remove({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;

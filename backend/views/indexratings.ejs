@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+    <div class="container">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Ratings</h1>
+                <p class="col-md-8 fs-4">Here are your ratings</p>
+                <a href="/favorties/newfavorite" class="btn btn-primary btn-lg" type="button">Add Ratings</a>
+            </div>
+        </div>
+        <div class="row">
+            <% props.forEach(function(fav){ %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Property ID <%= fav.Property_id %><br></h5>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                User ID: <%= fav.User_id %><br>
+                                    Ratings: <%= fav.ratings %><br>
+                            </small>
+                        </p>
+                        <a href="/favorites/<%= user._id %>" class="btn btn-outline-dark active"
+                            style="text-decoration: none; color: white;">Show details</a>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <%- include('partials/footer') %>
+    </div>

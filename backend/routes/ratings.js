@@ -10,65 +10,65 @@ var db = monk('127.0.0.1:27017/Airbnb', function (err, db) {
 
 router.get('/', function (req, res, next) {
     var t = new URLSearchParams(req.query);
-    var collection = db.get('favorites');
+    var collection = db.get('ratings');
     collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
         if (err) throw err;
-        res.render('favoriteuseids.ejs', { favorites: result });
+        res.render('ratingsuseids.ejs', { ratings: result });
     });
 });
 
-router.get('/favorites/:id', function (req, res) {
-    var collection = db.get('favorties');
+router.get('/:id', function (req, res) {
+    var collection = db.get('ratings');
     collection.find({ _id: req.params.id }, function (err, result) {
         if (err) throw err;
-        res.render('favorites', { favorite: result[0] });
+        res.render('ratings', { favorite: result[0] });
     });
 });
 
-router.get('/favorites', function (req, res) {
+router.get('/ratings', function (req, res) {
     var t = new URLSearchParams(req.query);
     if (t == 0) {
-        var collection = db.get('favorites');
+        var collection = db.get('ratings');
         collection.find({}, function (err, props) {
             if (err) throw err;
-            res.render('indexfavorite', { props: props })
+            res.render('indexratings', { props: props })
         });
     }
     else {
-        var collection = db.get('favorites');
+        var collection = db.get('ratings');
         collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
             if (err) throw err;
-            res.render('showfavorite', { users: result });
+            res.render('showratings', { users: result });
         });
     }
 
 });
 
-router.post('/favorites', function (req, res) {
-    var collection = db.get('favorites');
+router.post('/ratings', function (req, res) {
+    var collection = db.get('ratings');
     collection.insert({
         ratings: req.body.ratings,
         Property_id: req.body.Property_id,
         User_id: req.body.User_id
     }, function (err, pr) {
         if (err) throw err;
-        res.redirect('/favorties');
+        res.redirect('/ratings');
     });
 });
 
 router.post('/:id', function (req, res) {
-    var collection = db.get('favorites');
+    var collection = db.get('ratings');
     collection.remove({ _id: req.params.id }, function (err, result) {
         if (err) throw err;
-        res.redirect('/favorites');
+        res.redirect('/ratings');
     });
 });
 
-router.get('/favorites/:id', function (req, res) {
-    var collection = db.get('favorites');
+router.get('/ratings/:id', function (req, res) {
+    var collection = db.get('ratings');
     collection.find({ _id: req.params.id }, function (err, result) {
         if (err) throw err;
-        res.render('showfavorite', { user: result[0] });
+        res.render('showratings', { user: result[0] });
     });
 });
 

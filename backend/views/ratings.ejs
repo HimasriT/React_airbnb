@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+    <div class="container-fluid">
+
+        <h1>Ratings Page</h1>
+        <p>User ID: <%= ratings.User_id %>
+        </p>
+        <p>Property ID: <%= ratings.Property_id %>
+        </p>
+        <p>Ratings: <%= ratings.ratings %>
+        </p>
+        <form action="/cart/<%=cart._id%>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete Rating</button>
+        </form>
+        <p>
+            <a href="http://localhost:900/user/properties">Back to list</a>
+        </p>
+    </div>
+    <%- include('partials/footer') %>

@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+    <div class="container-fluid">
+
+        <h1>Rated Property details</h1>
+        <p>Property ID: <%= user.property_id %>
+        </p>
+        <p>User ID: <%= user.user_id %>
+        </p>
+        <p>Ratings: <%= user.ratings %>
+        </p>
+        <form action="/ratings/<%=user._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete Ratings</button>
+        </form>
+        <p>
+            <a href="/user/ratings">Back to list</a>
+        </p>
+    </div>
+
+<%- include('partials/footer') %>

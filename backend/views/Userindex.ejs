@@ -10,35 +10,42 @@
     </div>
     <h3 align="center" style="background-color: blanchedalmond">Welcome to Property Listing page</h3>
     <div class="form-group col-md-4">
+      <br>
       <button type="button" id="cart" class="btn btn-outline-dark active"><a href="/users/reservations/page"
           style="text-decoration: none; color: white">My Reservations</a></button>
       <button type="button" id="Favorites" class="btn btn-outline-dark active"><a href="/users/favorites"
           style="text-decoration: none; color: white">My Favorites</a></button>
+      <button type="button" id="Ratings" class="btn btn-outline-dark active"><a href="/users/ratings"
+          style="text-decoration: none; color: white">My Ratings</a></button>
       <button type="button" id="LogOut" class="btn btn-outline-dark active"><a href="/users/logout"
-          style="text-decoration: none; color: white">LogOut</a></button>
+          style="text-decoration: none; color: white">Logout</a></button>
     </div>
   </div>
   <br>
   <div class="row">
     <% props.forEach(function(pr){ %>
-      <div class="card" style="width: 18rem;">
-        <img src="../images/<%= pr.path %>" class="thumbnail" alt="..." style="width:200px; height:200px">
+      <div class="card" style="width: 18rem; margin-right: 2em; margin-left: 2em; background-color: beige;">
+        <img src="../images/<%= pr.path %>" class="thumbnail" alt="..."
+          style="width:275px; height:175px; margin-right: 2em;">
         <div class="card-body">
           <h5 class="card-title">
             <%= pr.name%> - <%= pr.city_name %>
           </h5>
           <p class="card-text">
             <small class="text-muted">
-              <%= pr.host %><br>
-                </br>
-                <%= pr.night_fee %><br>
-                  </br>
-                  <%= pr.host %><br>
+              Ratings: <%= pr.ratings %>
+                <br><br>
+                <%= pr.host %>
+                  </br><br>
+                  <%= pr.night_fee %><br>
                     </br>
-                    <%= pr.amenities %><br>
+                    <%= pr.host %><br>
+                      </br>
+                      <%= pr.amenities %><br>
             </small>
           </p>
-          <a href="http://localhost:9000/users/properties/<%= pr._id %>" class="btn btn-primary">Show details</a>
+          <a href="http://localhost:9000/users/properties/<%= pr._id %>" class="btn btn-outline-dark active">Show
+            details</a>
         </div>
       </div>
       <% }); %>

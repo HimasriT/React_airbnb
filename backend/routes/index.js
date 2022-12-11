@@ -184,6 +184,31 @@ router.get('/properties/fav', function (req, res) {
 	}
 });
 
+
+
+router.get('/properties/ratings', function (req, res) {
+	var t = new URLSearchParams(req.query);
+	console.log(t);
+	if (t == 0) {
+		console.log("No query value");
+		console.log(req.query);
+		var collection = db.get('properties');
+		collection.find({}, function (err, props) {
+			if (err) throw err;
+			res.render('ratedisplay.ejs', { props: props })
+		});
+	}
+	else {
+		console.log("yes");
+		console.log(typeof (String(req.query.prop_id)));
+		var collection = db.get('properties');
+		collection.find({ _id: String(req.query.prop_id) }, function (err, result) {
+			if (err) throw err;
+			res.render('ratedisplay.ejs', { props: result });
+		});
+	}
+});
+
 router.post('/properties', function (req, res) {
 	var collection = db.get('properties');
 	collection.insert({

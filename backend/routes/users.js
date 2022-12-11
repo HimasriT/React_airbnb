@@ -150,12 +150,27 @@ router.get('/favorites/new', function (req, res) {
 	res.render('newfavorite.ejs');
 });
 
+router.get('/ratings/new', function (req, res) {
+	res.render('newrate.ejs');
+});
+
 router.post('/favorites/:id', function (req, res) {
-	console.log("Adding favorites");
 	var collection = db.get('favorites');
 	collection.insert({
 		Property_id: req.params.id,
 		User_id: user_id
+	}, function (err, pr) {
+		if (err) throw err;
+		res.redirect('/users/properties');
+	});
+});
+
+router.post('/ratings', function (req, res) {
+	var collection = db.get('ratings');
+	collection.insert({
+		Property_id: req.body.Property_id,
+		User_id: req.body.user_id,
+		ratings: req.body.ratings
 	}, function (err, pr) {
 		if (err) throw err;
 		res.redirect('/users/properties');
@@ -222,8 +237,21 @@ router.delete('/properties/:id', function (req, res) {
 });
 
 router.get('/favorites', function (req, res, next) {
+	t = new URLSearchParams(req.query);
+	if (user_id == '#') {
+		user_id = String(req.query.user_id);
+	}
 	var site = 'http://localhost:9000/favorites?user_id=' + user_id;
-	console.log(site);
+	res.redirect(site);
+});
+
+router.get('/ratings', function (req, res, next) {
+	console.log("inside user ratings")
+	t = new URLSearchParams(req.query);
+	if (user_id == '#') {
+		user_id = String(req.query.user_id);
+	}
+	var site = 'http://localhost:9000/ratings?user_id=' + user_id;
 	res.redirect(site);
 });
 

@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
 
-        <h1>Reservation details</h1>
+        <h1 align="center" style="background-color: blanchedalmond;">Reservation details</h1>
         <p>check_in: <%= user.check_in %>
         </p>
         <p>check_out: <%= user.check_out %>
@@ -17,14 +17,14 @@
         </p>
         <p>payment_id: <%= user.payment_id %>
         </p>
-        <form action="/reservations/<%=user._id %>?_method=DELETE" method="POST">
+        <form action="/cart/reservations/<%=user._id %>" method="POST">
 
-            <button type="submit" class="btn btn-danger">Delete reservations</button>
+            <button type="submit" class="btn btn-outline-dark active">Delete reservation</button>
 
         </form>
 
         <p>
-            <a href="/reservations">Back to list</a>
+            <a href="/users/properties">Back to list</a>
         </p>
     </div>
 

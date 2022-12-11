@@ -1,9 +1,9 @@
 <%- include('partials/header') %>
     <div>
-        <h3 align="center" style="background-color: blanchedalmond;">My Favorites Page</h3>
+        <h3 align="center" style="background-color: blanchedalmond;">My Ratings Page</h3>
         <div class="row">
 
-            <% favorites.forEach(function(favorite){ %>
+            <% ratings.forEach(function(favorite){ %>
 
                 <div class="card" style="width: 18rem; background-color: beige;">
                     <div class="card-body">
@@ -13,28 +13,23 @@
                                 </br>
                                 Property ID: <%= favorite.Property_id %><br>
                                     </br>
-                                    User ID: <%= favorite.User_id %><br>
+                                    Ratings: <%= favorite.ratings %><br>
                                         </br>
-                                        Ratings: <%= favorite.ratings %><br>
-                                            </br>
                             </small>
                         </p>
 
-                        <a href="/properties/fav?prop_id=<%= favorite.Property_id %>"
+                        <a href="/properties/ratings?prop_id=<%= favorite.Property_id %>"
                             class="btn btn-outline-dark active" style="text-decoration: none; color: white">Show
                             details</a> <br>
                         </br>
-                        <form action="/favorites/<%=favorite._id %>" method="POST">
-                            <div class="form-group col-md-2">
-                                <button type="submit" id="remove" class="btn btn-outline-dark active">Remove</button>
+                        <form action="/ratings/<%=favorite._id%>" method="POST">
+                            <div class="form-group col-md-6">
+                                <button type="submit" id="remove" class="btn btn-outline-dark active">Delete Rating</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
                 <% }); %>
-
         </div>
         <br>
         <div>
@@ -42,15 +37,12 @@
         </div>
         <div>
 
-
             <script>
                 function back() {
                     url = location.href;
-                    url = url.replace("favorites", "users/properties");
+                    url = url.replace("ratings", "users/properties");
                     location.href = url;
                 }
             </script>
-
-
 
             <%- include('partials/footer') %>

@@ -1,24 +1,28 @@
 <%- include('partials/header') %>
-
+<h3 align="center" style="background-color: blanchedalmond;">New Ratings Page</h3>
     <div class="container">
-        <form action="/users/favorite" method="POST">
+        <form action="/users/ratings" method="POST">
             <div class="form-group col-md-2">
-                <label>Ratings</label>
+                <label>Ratings (0 to 5)</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="0" class="slider" name="rating" >
+                    <input type="range" min="0" max="5" step="any" name="ratings">
                 </div>
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Property ID</label>
-                <input type="text" id="user_id" name="user_id" class="form-control">
+                <input type="text" id="Property_id" name="Property_id" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>User ID</label>
                 <input type="text" id="user_id" name="user_id" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
-                <button type="submit" id="add" class="btn btn-outline-dark">Add to favorites</button>
+                <button type="submit" id="add" class="btn btn-outline-dark active">Add Rating</button>
             </div>
+            <br>
         </form>
     </div>
 

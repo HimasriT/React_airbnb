@@ -1,38 +1,47 @@
 <%- include('partials/header') %>
-
+<h3 align="center" style="background-color: blanchedalmond;">Reservation Request Page</h3>
+<br>
     <div class="container">
         <form action="/reservations" method="POST">
             <div class="form-group col-md-2">
                 <label>Check-in Date</label>
                 <input type="date" id="check_in" name="check_in" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Check-out Date</label>
                 <input type="date" id="check_out" name="check_out" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Number of days</label>
                 <input type="number" id="no_of_days" min="1" name="no_of_days" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Amount Paid</label>
                 <input type="number" id="amount_paid" min="0" name="amount_paid" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Property ID</label>
                 <input type="text" id="property_id" name="property_id" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>Payment ID</label>
                 <input type="text" id="payment_id" name="payment_id" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
                 <label>User ID</label>
                 <input type="text" id="user_id" name="user_id" class="form-control">
             </div>
+            <br>
             <div class="form-group col-md-2">
-                <button type="submit" id="add" class="btn btn-outline-dark">Add Reservation</button>
+                <button type="submit" id="add" class="btn btn-outline-dark active">Add Reservation</button>
             </div>
+            <br>
         </form>
     </div>
 <%- include('partials/footer') %>
