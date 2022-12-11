@@ -37,13 +37,13 @@
             <br>
             <div class="form-group col-md-2">
                 <label>Ratings</label>
-                <input type="number" id="ratings" min="1" max="5" name="ratings" class="form-control"
+                <input type="number" id="ratings" min="1" max="5" name="ratings" step="any" class="form-control"
                     value="<%=pr.ratings%>" required placeholder="please enter the known rating for the property...">
             </div>
             <br>
             <div class="form-group col-md-2">
                 <label>Night Fee</label>
-                <input type="number" id="night_fee" min="0" step="100" name="night_fee" class="form-control"
+                <input type="number" id="night_fee" min="0" name="night_fee" class="form-control"
                     value="<%=pr.night_fee%>" required placeholder="please enter the fee per night...">
             </div>
             <br>
@@ -79,10 +79,9 @@
                     placeholder="please enter the property description..."></textarea>
             </div>
             <br>
-            <div class="form-group col-md-2">
-                <label>Image Name</label>
-                <input type="text" id="image" name="image" class="form-control" value="<%=pr.path%>" required
-                placeholder="please enter the image path...">
+            <div class="form-group col-md-4">
+                <label>Image</label>
+                <input type="file" id="image" name="image" accept="image/png, image/jpg" title="<%=pr.path%>">
             </div>
             <br>
             <div class="form-group col-md-4">
