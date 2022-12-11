@@ -113,7 +113,7 @@ router.get('/properties', function (req, res) {
 	}
 	else {
 		if (t == 0) {
-			collection.find({ host_id: user_id },{availability:"true"}, function (err, result) {
+			collection.find({ host_id: user_id ,availability:"true"}, function (err, result) {
 				if (err) throw err;
 				res.render('index.ejs', { props: result });
 			});
@@ -123,7 +123,7 @@ router.get('/properties', function (req, res) {
 			user_id = String(req.query.user_id);
 			console.log("Inside else");
 			console.log(user_id);
-			collection.find({ host_id: String(req.query.user_id) },{availability:"true"}, function (err, result) {
+			collection.find({ host_id: String(req.query.user_id) ,availability:"true"}, function (err, result) {
 				if (err) throw err;
 				res.render('index.ejs', { props: result });
 			});
@@ -216,6 +216,22 @@ router.post('/properties/edit/:id', function (req, res) {
 		res.redirect('/properties');
 	});
 });
+
+router.post('/properties/update/:id', function(req, res) {
+	//req.body is used to read form input
+	var collection = db.get('properties');
+	var new_record = {
+		availability:"false"
+	};
+
+	collection.update({ _id:req.params.id }, {$set : new_record}, {upsert:true}, function(err, pr){
+		if (err) throw err;
+		// if insert is successfull, it will return newly inserted object
+	  	//res.json(video);
+		res.redirect('/properties');
+	});
+});
+
 
 router.delete('/properties/:id', function (req, res) {
 	var collection = db.get('properties');

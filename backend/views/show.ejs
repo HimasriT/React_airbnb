@@ -31,7 +31,7 @@
         <a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id %>/edit" role="button"> Edit
             property</a>
 
-        <form action="/properties/<%=pr._id %>?_method=DELETE" method="POST">
+        <form action="/properties/update/<%=pr._id %>" method="POST">
 
             <button type="submit" class="btn btn-danger">Delete property</button>
 
