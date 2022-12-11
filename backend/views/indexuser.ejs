@@ -1,42 +1,38 @@
 <%- include('partials/header') %>
 
 
-    <div class="container">
+  <div class="container">
 
-      <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">reservation Listing</h1>
-          <p class="col-md-8 fs-4">All reservation Listings</p>
-          <a href="/reservations/newuser" class="btn btn-primary btn-lg" type="button">Add reservation</a>
-        </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Reservation Listing</h1>
+        <p class="col-md-8 fs-4">Here are all the reservation Listings</p>
+        <a href="/reservations/newuser" class="btn btn-primary btn-lg" type="button">Add reservation</a>
       </div>
+    </div>
 
+    <div class="row">
 
-
-      <div class="row">
-
-        <% props.forEach(function(user){ %>
+      <% props.forEach(function(user){ %>
 
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">User id <%= user.user_id %><br></h5>
             <p class="card-text">
               <small class="text-muted">
-             Check Out <%= user.check_out %><br>
-              </br>
-             No of Days <%= user.no_of_days %><br>
-              </br>
-             Amount paid <%= user.amount_paid %><br>
-              </br>
-             property_id <%= user.property_id %><br>
-            </br>
-            Check IN <%= user.check_in %>
-           
-          </br>
-        payment id  <%= user.payment_id %><br>
+                Check Out <%= user.check_out %><br>
+                  </br>
+                  No of Days <%= user.no_of_days %><br>
+                    </br>
+                    Amount Paid <%= user.amount_paid %><br>
+                      </br>
+                      Property ID <%= user.property_id %><br>
+                        </br>
+                        Check-in Date<%= user.check_in %>
+                          </br>
+                          Payment ID <%= user.payment_id %><br>
               </small>
             </p>
-
             <a href="/reservations/<%= user._id %>" class="btn btn-primary">Show details</a>
           </div>
         </div>
@@ -44,14 +40,10 @@
         <% }); %>
 
 
-      </div>
-
-      <%- include('partials/footer') %>
-  
-
-
     </div>
 
+    <%- include('partials/footer') %>
 
 
 
+  </div>

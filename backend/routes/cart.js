@@ -19,9 +19,7 @@ router.get('/reservations/newuser', function (req, res) {
 });
 
 router.get('/cart', function (req, res) {
-	console.log( "1");
 	var t = new URLSearchParams(req.query);
-	console.log(req.query.user_id);
 		try{
 			var collection = db.get('cart');
 		}
@@ -30,17 +28,14 @@ router.get('/cart', function (req, res) {
 		}
 		collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
 			if (err) throw err;
-			//res.json(result);
 			res.render('cartuseids', { carts: result });
 		});
-	// }
 });
 
 router.get('/cart/:id', function (req, res) {
 	var collection = db.get('cart');
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
-		// res.json(result);
 		res.render('cart', { cart: result[0] });
 	});
 });
@@ -52,7 +47,6 @@ router.get('/reservations', function (req, res) {
 		console.log(req.query);
 		var collection = db.get('reservations');
 		collection.find({}, function (err, props) {
-			// res.json(props);
 			if (err) throw err;
 			res.render('indexuser', { props: props })
 		});
@@ -62,7 +56,6 @@ router.get('/reservations', function (req, res) {
 			var collection = db.get('reservations');
 			collection.find({ user_id: String(req.query.user_id) }, function (err, result) {
 			if (err) throw err;
-			// res.json(result);
 			res.render('showuserid', { users: result });
 		});	
 	}
@@ -70,7 +63,6 @@ router.get('/reservations', function (req, res) {
 });
 
 router.post('/reservations', function (req, res) {
-	//req.body is used to read form input
 	console.log(req.body);
 	var collection = db.get('reservations');
 	collection.insert({
@@ -78,14 +70,11 @@ router.post('/reservations', function (req, res) {
 		check_out: req.body.check_out,
 		no_of_days: req.body.no_of_days,
 		amount_paid: req.body.amount_paid,
-		ratings: req.body.ratings,
 		property_id: req.body.property_id,
 		user_id: req.body.user_id,
 		payment_id: req.body.payment_id
 	}, function (err, pr) {
 		if (err) throw err;
-		// if insert is successfull, it will return newly inserted object
-		// res.json(pr);
 		res.redirect('/reservations');
 	});
 });
@@ -94,9 +83,7 @@ router.delete('/reservations/:id', function (req, res) {
 	var collection = db.get('reservations');
 	collection.remove({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
-		// res.json(result);
 		res.redirect('/reservations');
-		//res.render('show', { pr : result[0] });
 	});
 });
 
@@ -104,14 +91,12 @@ router.get('/reservations/:id', function (req, res) {
 	var collection = db.get('reservations');
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
-		// res.json(result);
 		res.render('showuser', { user: result[0] });
 	});
 });
 
 
 router.post('/cart/edit/:id', function (req, res) {
-	//req.body is used to read form input
 	var collection = db.get('cart');
 	console.log("POST")
 	console.log(req.body);
@@ -122,11 +107,8 @@ router.post('/cart/edit/:id', function (req, res) {
 		Property_id:req.body.property_id,
 		User_id:req.body.User_id		
 	};
-	//console.log(new_record);
 	collection.update({ _id: req.params.id }, { $set: new_record }, { upsert: true }, function (err, pr) {
 		if (err) throw err;
-		// if insert is successfull, it will return newly inserted object
-		//res.json(video);
 		res.redirect('/properties');
 	});
 	
@@ -134,11 +116,9 @@ router.post('/cart/edit/:id', function (req, res) {
 
 router.get('/cart/:id/edit', function (req, res) {
 	var collection = db.get('cart');
-	//console.log(req.params.id );
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
 		res.render('editcart', { cart: result[0] });
-		//res.json(result);
 	});
 });
 
@@ -147,11 +127,7 @@ router.delete('/cart/:id', function (req, res) {
 	collection.remove({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
 		res.redirect('/properties');
-		//res.render('show', { pr : result[0] });
-		//res.json(result);
 	});
 });
 
-
 module.exports = router;
-

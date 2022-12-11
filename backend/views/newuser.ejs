@@ -1,45 +1,38 @@
 <%- include('partials/header') %>
 
-<div class="container">
-<form action="/reservations" method="POST">
-    <div class="form-group col-md-2">
-    <label>check-in</label>
-    <input type="text" id="check_in" name="check_in" class="form-control">
+    <div class="container">
+        <form action="/reservations" method="POST">
+            <div class="form-group col-md-2">
+                <label>Check-in Date</label>
+                <input type="date" id="check_in" name="check_in" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Check-out Date</label>
+                <input type="date" id="check_out" name="check_out" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Number of days</label>
+                <input type="number" id="no_of_days" min="1" name="no_of_days" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Amount Paid</label>
+                <input type="number" id="amount_paid" min="0" name="amount_paid" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Property ID</label>
+                <input type="text" id="property_id" name="property_id" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Payment ID</label>
+                <input type="text" id="payment_id" name="payment_id" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <label>User ID</label>
+                <input type="text" id="user_id" name="user_id" class="form-control">
+            </div>
+            <div class="form-group col-md-2">
+                <button type="submit" id="add" class="btn btn-outline-dark">Add Reservation</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group col-md-2">
-    <label>check-out</label>
-    <input type="text" id="check_out" name="check_out" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>no_of_days</label>
-    <input type="text" id="no_of_days" name="no_of_days" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>amount_paid</label>
-    <input type="text" id="amount_paid" name="amount_paid" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>property_id</label>
-    <input type="text" id="property_id" name="night_fee" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-    <label>payment_id</label>
-    <input type="text" id="payment_id" name="payment_id" class="form-control">
-    </div>
-    <div class="form-group col-md-2">
-        <label>user_id</label>
-        <input type="text" id="user_id" name="user_id" class="form-control">
-        </div>
-    
-
-    <div class="form-group col-md-2">
-    <button type="submit" id="add" class="btn btn-outline-dark">Add Reservation</button>
-    </div>
-
-</form>
-
-
-</div>
-
-
 <%- include('partials/footer') %>

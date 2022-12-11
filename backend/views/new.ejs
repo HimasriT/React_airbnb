@@ -37,25 +37,25 @@
             <br>
             <div class="form-group col-md-4">
                 <label>Ratings</label>
-                <input type="number" id="ratings" name="ratings" min="0" max="5" class="form-control" required
-                    placeholder="please enter the known rating for the property...">
+                <input type="number" id="ratings" name="ratings" min="0" max="5" step="any" class="form-control"
+                    required placeholder="please enter the known rating for the property...">
             </div>
             <br>
             <div class="form-group col-md-4">
                 <label>Night Fee</label>
-                <input type="number" id="night_fee" name="night_fee" min="0" step="100" class="form-control" required
+                <input type="number" id="night_fee" name="night_fee" min="0" class="form-control" required
                     placeholder="please enter the fee per night...">
             </div>
             <br>
             <div class="form-group col-md-4">
                 <label>Cleaning Fee</label>
                 <input type="number" id="cleaning_fee" name="cleaning_fee" class="form-control" required min="0"
-                    step="10" placeholder="please enter the cleaning fee per stay...">
+                    placeholder="please enter the cleaning fee per stay...">
             </div>
             <br>
             <div class="form-group col-md-4">
                 <label>Service Fee</label>
-                <input type="number" id="service_fee" name="service_fee" class="form-control" min="0" step="10" required
+                <input type="number" id="service_fee" name="service_fee" class="form-control" min="0" required
                     placeholder="please enter the service fee per stay...">
             </div>
             <br>
@@ -85,9 +85,11 @@
             <br>
             <div class="form-group col-md-4">
                 <button type="submit" id="add" class="btn btn-outline-dark active">Add Property</button>
-                <button type="button" id="back" class="btn btn-outline-dark active"><a href="/properties" style="text-decoration: none; color: white">Back to list</a></button>
-            </div>
             </div>
         </form>
+        <div>
+            <button type="button" id="back" class="btn btn-outline-dark active"><a href="/properties"
+                    style="text-decoration: none; color: white">Back to list</a></button>
+        </div>
     </div>
     <%- include('partials/footer') %>

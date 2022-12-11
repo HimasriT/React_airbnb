@@ -1,44 +1,46 @@
 <%- include('partials/header') %>
 
-<div class="row">
+  <div>
+    <h3 align="center" style="background-color: blanchedalmond;">My Reservations Page</h3>
+    <div class="row">
 
-    <% users.forEach(function(user){ %>
+      <% users.forEach(function(user){ %>
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">User id <%= user.user_id %><br></h5>
-        <p class="card-text">
-          <small class="text-muted">
-         Check Out <%= user.check_out %><br>
-          </br>
-         No of Days <%= user.no_of_days %><br>
-          </br>
-         Amount paid <%= user.amount_paid %><br>
-          </br>
-         property_id <%= user.property_id %><br>
-        </br>
-        Check IN <%= user.check_in %>
-       
-      </br>
-    payment id  <%= user.payment_id %><br>
-          </small>
-        </p>
-
-        <a href="/reservations/<%= user._id %>" class="btn btn-primary">Show details</a>
-      </div>
+        <div class="card" style="width: 18rem; background-color: beige;">
+          <div class="card-body">
+            <h5 class="card-title">User id <%= user.user_id %><br></h5>
+            <p class="card-text">
+              <small class="text-muted">
+                Check Out <%= user.check_out %><br>
+                  </br>
+                  No of Days <%= user.no_of_days %><br>
+                    </br>
+                    Amount Paid <%= user.amount_paid %><br>
+                      </br>
+                      Property ID <%= user.property_id %><br>
+                        </br>
+                        Check-in Date <%= user.check_in %>
+                          </br>
+                          Payment ID <%= user.payment_id %><br>
+              </small>
+            </p>
+            <a href="/reservations/<%= user._id %>" class="btn btn-primary">Show details</a>
+          </div>
+        </div>
+        <% }); %>
     </div>
-
-    <% }); %>
-
-
   </div>
-    
-<p>
-<a href="/users/properties">Back to list</a>
+  <br>
+  <div>
+    <button class="btn btn-outline-dark active" onclick="back()">Back to list</button>
+  </div>
+  </div>
+  <script>
+    function back() {
+        url = location.href;
+        url = url.replace("reservations", "properties");
+        location.href = url;
+    }
+  </script>
 
-</p>
-</div>
-
-
-
-<%- include('partials/footer') %>
+  <%- include('partials/footer') %>

@@ -1,44 +1,56 @@
 <%- include('partials/header') %>
+    <div>
+        <h3 align="center" style="background-color: blanchedalmond;">My Favorites Page</h3>
+        <div class="row">
 
-    <div class="row">
+            <% favorites.forEach(function(favorite){ %>
 
-        <% favorites.forEach(function(favorite){ %>
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">User id <%= favorite.User_id %><br></h5>
-                    <p class="card-text">
-                        <small class="text-muted">
-                            </br>
-                            Property ID: <%= favorite.Property_id %><br>
+                <div class="card" style="width: 18rem; background-color: beige;">
+                    <div class="card-body">
+                        <h5 class="card-title">User id <%= favorite.User_id %><br></h5>
+                        <p class="card-text">
+                            <small class="text-muted">
                                 </br>
-                                User ID: <%= favorite.User_id %><br>
+                                Property ID: <%= favorite.Property_id %><br>
                                     </br>
-                                    Ratings: <%= favorite.ratings %><br>
+                                    User ID: <%= favorite.User_id %><br>
                                         </br>
-                        </small>
-                    </p>
+                                        Ratings: <%= favorite.ratings %><br>
+                                            </br>
+                            </small>
+                        </p>
 
-                    <a href="/properties/fav?prop_id=<%= favorite.Property_id %>" class="btn btn-outline-dark active"
-                        style="text-decoration: none; color: white">Show details</a> <br>
-                    </br>
-                    <form action="/favorites/<%=favorite._id %>?_method=DELETE" method="POST">
-                        <div class="form-group col-md-2">
-                            <button type="submit" id="remove" class="btn btn-warning">Remove</button>
-                        </div> 
-                    </form>
-                    
+                        <a href="/properties/fav?prop_id=<%= favorite.Property_id %>"
+                            class="btn btn-outline-dark active" style="text-decoration: none; color: white">Show
+                            details</a> <br>
+                        </br>
+                        <form action="/favorites/<%=favorite._id %>?_method=DELETE" method="POST">
+                            <div class="form-group col-md-2">
+                                <button type="submit" id="remove" class="btn btn-warning">Remove</button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-            </div>
 
-            <% }); %>
+                <% }); %>
 
-    </div>
+        </div>
+        <br>
+        <div>
+            <button onclick="back()" class="btn btn-outline-dark active">Back to list</button>
+        </div>
+        <div>
 
-    <p>
-        <a href="http://localhost:9000/users/properties">Back to list</a>
-    </p>
+
+            <script>
+                function back() {
+                    url = location.href;
+                    url = url.replace("favorites", "users/properties");
+                    location.href = url;
+                }
+            </script>
 
 
 
-    <%- include('partials/footer') %>
+            <%- include('partials/footer') %>

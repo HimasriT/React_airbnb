@@ -22,10 +22,6 @@ router.get('/', function (req, res, next) {
     });
 });
 
-/*router.get('/favorites', function (req, res) {
-    
-}); */
-
 router.get('/favorites/:id', function (req, res) {
     var collection = db.get('favorties');
     collection.find({ _id: req.params.id }, function (err, result) {
@@ -72,15 +68,6 @@ router.delete('/favorties/:id', function (req, res) {
         res.redirect('/favorties');
     });
 });
-
-/*router.post('/favorites/deletefav/:id', function (req, res) {
-    console.log("Entered into delete");
-    var collection = db.get('favorites');
-    collection.remove({ _id: req.params.id }, function (err, result) {
-        if (err) throw err;
-        res.redirect('/favorties');
-    });
-}); */
 
 router.get('/favorites/:id', function (req, res) {
     var collection = db.get('favorites');

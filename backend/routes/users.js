@@ -60,15 +60,14 @@ router.get('/reservations', function (req, res) {
 
 });
 
-router.get('/reservations/page', function(req, res, next) {
-  var site = 'http://localhost:9000/users/reservations?user_id='+user_id;
-  console.log(site);
-  res.redirect(site);
+router.get('/reservations/page', function (req, res, next) {
+	var site = 'http://localhost:9000/users/reservations?user_id=' + user_id;
+	res.redirect(site);
 });
 
-router.get('/logout', function(req, res, next) {
-  user_id = '#';
-  res.redirect('http://localhost:3000');
+router.get('/logout', function (req, res, next) {
+	user_id = '#';
+	res.redirect('http://localhost:3000');
 });
 
 router.post('/reservations', function (req, res) {
@@ -112,49 +111,16 @@ router.get('/new', function (req, res) {
 
 router.get('/properties', function (req, res) {
 	t = new URLSearchParams(req.query);
-	console.log(t);
-  console.log("Inside the users properties");
-  if(user_id == '#')
-  {
-    user_id = String(req.query.user_id);
-  }
-  console.log(user_id);
-  var collection = db.get('properties');
+	if (user_id == '#') {
+		user_id = String(req.query.user_id);
+	}
+	console.log(user_id);
+	var collection = db.get('properties');
 	collection.find({}, function (err, props) {
 		if (err) throw err;
 		res.render('Userindex.ejs', { props: props });
 	});
 });
-/*	var collection = db.get('properties');
-	if (t == 0 && user_id === "#") {
-		console.log("No query value");
-		console.log(req.query);
-		collection.find({}, function (err, props) {
-			if (err) throw err;
-			res.render('Userindex.ejs', { props: props })
-		});
-	}
-	else {
-		if (t == 0) {
-			collection.find({ host_id: user_id },{availability:"true"}, function (err, result) {
-				if (err) throw err;
-				res.render('Userindex.ejs', { props: result });
-			});
-		}
-		else {
-			console.log(typeof (String(req.query.user_id)));
-			user_id = String(req.query.user_id);
-			console.log("Inside else");
-			console.log(user_id);
-			collection.find({ host_id: String(req.query.user_id) },{availability:"true"}, function (err, result) {
-				if (err) throw err;
-				res.render('index.ejs', { props: result });
-			});
-		}
-
-	}
-
-});*/
 
 router.get('/properties/fav', function (req, res) {
 	var t = new URLSearchParams(req.query);
@@ -173,39 +139,30 @@ router.get('/properties/fav', function (req, res) {
 		console.log("yes");
 		console.log(typeof (String(req.query.prop_id)));
 		var collection = db.get('properties');
-		collection.find({ id : String(req.query.prop_id) }, function (err, result) {
+		collection.find({ id: String(req.query.prop_id) }, function (err, result) {
 			if (err) throw err;
 			res.render('favdisplay.ejs', { props: result });
 		});
 	}
 });
 
-router.get('/favorites/new', function(req, res) {
+router.get('/favorites/new', function (req, res) {
 	res.render('newfavorite.ejs');
 });
 
 router.post('/favorites/:id', function (req, res) {
-  console.log("Adding favorites");
-  var collection = db.get('favorites');
-  collection.insert({
-      Property_id: req.params.id,
-      User_id: user_id
-  }, function (err, pr) {
-      if (err) throw err;
-      res.redirect('/users/properties');
-  });
+	console.log("Adding favorites");
+	var collection = db.get('favorites');
+	collection.insert({
+		Property_id: req.params.id,
+		User_id: user_id
+	}, function (err, pr) {
+		if (err) throw err;
+		res.redirect('/users/properties');
+	});
 });
 
-router.post('/properties', [
-	check('name', 'Please enter a property name')
-		.isEmail().isLength({ min: 1 })
-	// check('name', 'Name length should be 10 to 20 characters')
-	// 	.isLength({ min: 10, max: 20 }),
-	// check('mobile', 'Mobile number should contains 10 digits')
-	// 	.isLength({ min: 10, max: 10 }),
-	// check('password', 'Password length should be 8 to 10 characters')
-	// 	.isLength({ min: 8, max: 10 })
-], function (req, res) {
+router.post('/properties', function (req, res) {
 	var collection = db.get('properties');
 	collection.insert({
 		name: req.body.name,
@@ -264,12 +221,10 @@ router.delete('/properties/:id', function (req, res) {
 	});
 });
 
-//http://localhost:9000/favorites?user_id=himasri
-
-router.get('/favorites', function(req, res, next) {
-  var site = 'http://localhost:9000/favorites?user_id='+user_id;
-  console.log(site);
-  res.redirect(site);
+router.get('/favorites', function (req, res, next) {
+	var site = 'http://localhost:9000/favorites?user_id=' + user_id;
+	console.log(site);
+	res.redirect(site);
 });
 
 router.get('/properties/:id/edit', function (req, res) {
@@ -284,7 +239,7 @@ router.get('/properties/:id', function (req, res) {
 	var collection = db.get('properties');
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
-		res.render('Usershow.ejs',{pr:result[0]});
+		res.render('Usershow.ejs', { pr: result[0] });
 	});
 });
 
@@ -348,4 +303,3 @@ router.delete('/cart/:id', function (req, res) {
 });
 
 module.exports = router;
-

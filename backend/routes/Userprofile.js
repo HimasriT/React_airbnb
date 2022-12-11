@@ -157,16 +157,7 @@ router.get('/properties/fav', function (req, res) {
 	}
 });
 
-router.post('/properties', [
-	check('name', 'Please enter a property name')
-		.isEmail().isLength({ min: 1 })
-	// check('name', 'Name length should be 10 to 20 characters')
-	// 	.isLength({ min: 10, max: 20 }),
-	// check('mobile', 'Mobile number should contains 10 digits')
-	// 	.isLength({ min: 10, max: 10 }),
-	// check('password', 'Password length should be 8 to 10 characters')
-	// 	.isLength({ min: 8, max: 10 })
-], function (req, res) {
+router.post('/properties', function (req, res) {
 	var collection = db.get('properties');
 	collection.insert({
 		name: req.body.name,
