@@ -37,10 +37,7 @@ router.get('/reservations/newuser', function (req, res) {
 
 router.get('/reservations', function (req, res) {
 	var t = new URLSearchParams(req.query);
-	console.log(t);
 	if (t == 0) {
-		console.log("No query value");
-		console.log(req.query);
 		var collection = db.get('reservations');
 		collection.find({}, function (err, props) {
 			//res.json(videos);
@@ -49,8 +46,6 @@ router.get('/reservations', function (req, res) {
 		});
 	}
 	else {
-		console.log("yes");
-		console.log(typeof (String(req.query.user_id)));
 		var collection = db.get('reservations');
 		collection.find({ user_id: String(req.query.user_id) }, function (err, result) {
 			if (err) throw err;
@@ -61,7 +56,6 @@ router.get('/reservations', function (req, res) {
 });
 
 router.post('/reservations', function (req, res) {
-	console.log(req.body);
 	var collection = db.get('reservations');
 	collection.insert({
 		check_in: req.body.check_in,
@@ -90,7 +84,6 @@ router.get('/reservations/:id', function (req, res) {
 	var collection = db.get('reservations');
 	collection.find({ _id: req.params.id }, function (err, result) {
 		if (err) throw err;
-		console.log(result);
 		res.render('showuser.ejs', { user: result[0] });
 	});
 });
@@ -101,11 +94,8 @@ router.get('/new', function (req, res) {
 
 router.get('/properties', function (req, res) {
 	t = new URLSearchParams(req.query);
-	console.log(t);
 	var collection = db.get('properties');
 	if (t == 0 && user_id === "#") {
-		console.log("No query value");
-		console.log(req.query);
 		collection.find({}, function (err, props) {
 			if (err) throw err;
 			res.render('index.ejs', { props: props })
@@ -119,10 +109,7 @@ router.get('/properties', function (req, res) {
 			});
 		}
 		else {
-			console.log(typeof (String(req.query.user_id)));
 			user_id = String(req.query.user_id);
-			console.log("Inside else");
-			console.log(user_id);
 			collection.find({ host_id: String(req.query.user_id) },{availability:"true"}, function (err, result) {
 				if (err) throw err;
 				res.render('index.ejs', { props: result });
@@ -135,10 +122,7 @@ router.get('/properties', function (req, res) {
 
 router.get('/properties/fav', function (req, res) {
 	var t = new URLSearchParams(req.query);
-	console.log(t);
 	if (t == 0) {
-		console.log("No query value");
-		console.log(req.query);
 		var collection = db.get('properties');
 		collection.find({}, function (err, props) {
 			//res.json(videos);
@@ -147,8 +131,6 @@ router.get('/properties/fav', function (req, res) {
 		});
 	}
 	else {
-		console.log("yes");
-		console.log(typeof (String(req.query.prop_id)));
 		var collection = db.get('properties');
 		collection.find({ id : String(req.query.prop_id) }, function (err, result) {
 			if (err) throw err;
@@ -234,13 +216,7 @@ router.get('/properties/:id', function (req, res) {
 
 router.get('/cart', function (req, res) {
 	var t = new URLSearchParams(req.query);
-	console.log(req.query.user_id);
-	try {
-		var collection = db.get('cart');
-	}
-	catch {
-		console.log("NO");
-	}
+	var collection = db.get('cart');
 	collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
 		if (err) throw err;
 		res.render('cartuseids.ejs', { carts: result });
@@ -258,8 +234,6 @@ router.get('/cart/:id', function (req, res) {
 
 router.post('/cart/edit/:id', function (req, res) {
 	var collection = db.get('cart');
-	console.log("POST")
-	console.log(req.body);
 	var new_record = {
 		No_of_days: req.body.No_of_days,
 		Total_Cost: req.body.Total_Cost,

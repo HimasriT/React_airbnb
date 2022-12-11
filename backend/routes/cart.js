@@ -18,16 +18,11 @@ router.get('/reservations/newuser', function (req, res) {
 
 router.get('/cart', function (req, res) {
 	var t = new URLSearchParams(req.query);
-		try{
-			var collection = db.get('cart');
-		}
-		catch{
-			console.log("NO");
-		}
-		collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
-			if (err) throw err;
-			res.render('cartuseids', { carts: result });
-		});
+	var collection = db.get('cart');
+	collection.find({ User_id: String(req.query.user_id) }, function (err, result) {
+		if (err) throw err;
+		res.render('cartuseids', { carts: result });
+	});
 });
 
 router.get('/cart/:id', function (req, res) {
@@ -41,8 +36,6 @@ router.get('/cart/:id', function (req, res) {
 router.get('/reservations', function (req, res) {
 	var t = new URLSearchParams(req.query);
 	if (t == 0) {
-		console.log("No query value");
-		console.log(req.query);
 		var collection = db.get('reservations');
 		collection.find({}, function (err, props) {
 			if (err) throw err;
@@ -50,18 +43,16 @@ router.get('/reservations', function (req, res) {
 		});
 	}
 	else {
-		console.log(req.query);
-			var collection = db.get('reservations');
-			collection.find({ user_id: String(req.query.user_id) }, function (err, result) {
+		var collection = db.get('reservations');
+		collection.find({ user_id: String(req.query.user_id) }, function (err, result) {
 			if (err) throw err;
 			res.render('showuserid', { users: result });
-		});	
+		});
 	}
 
 });
 
 router.post('/reservations', function (req, res) {
-	console.log(req.body);
 	var collection = db.get('reservations');
 	collection.insert({
 		check_in: req.body.check_in,
@@ -79,9 +70,19 @@ router.post('/reservations', function (req, res) {
 
 router.post('/reservations/:id', function (req, res) {
 	var collection = db.get('reservations');
-	collection.remove({ _id: req.params.id }, function (err, result) {
+	collection.findOne({ _id: req.params.id }, function (err, pr) {
 		if (err) throw err;
-		res.redirect('/reservations');
+		var date = new Date();
+		var checkindate = pr.check_in;
+		var parts = checkindate.split("-");
+		var checkin = new Date(parts[0], parts[1] - 1 , parts[2]); 
+		var diff = checkin.valueOf() - date.valueOf();
+		var diffInHours = diff/1000/60/60;	
+		if(diffInHours >= 48) {
+			res.redirect('/reservations');
+		} else {
+			res.render("errorreserve.ejs")
+		}
 	});
 });
 
@@ -96,20 +97,18 @@ router.get('/reservations/:id', function (req, res) {
 
 router.post('/cart/edit/:id', function (req, res) {
 	var collection = db.get('cart');
-	console.log("POST")
-	console.log(req.body);
 	var new_record = {
-		No_of_days:req.body.No_of_days,
-		Total_Cost:req.body.Total_Cost,
-		Number_of_persons:req.body.number_of_persons,
-		Property_id:req.body.property_id,
-		User_id:req.body.User_id		
+		No_of_days: req.body.No_of_days,
+		Total_Cost: req.body.Total_Cost,
+		Number_of_persons: req.body.number_of_persons,
+		Property_id: req.body.property_id,
+		User_id: req.body.User_id
 	};
 	collection.update({ _id: req.params.id }, { $set: new_record }, { upsert: true }, function (err, pr) {
 		if (err) throw err;
 		res.redirect('/properties');
 	});
-	
+
 });
 
 router.get('/cart/:id/edit', function (req, res) {
