@@ -73,14 +73,14 @@ router.delete('/favorties/:id', function (req, res) {
     });
 });
 
-router.get('/favorites/deletefav/:id', function (req, res) {
+/*router.post('/favorites/deletefav/:id', function (req, res) {
     console.log("Entered into delete");
     var collection = db.get('favorites');
     collection.remove({ _id: req.params.id }, function (err, result) {
         if (err) throw err;
         res.redirect('/favorties');
     });
-});
+}); */
 
 router.get('/favorites/:id', function (req, res) {
     var collection = db.get('favorites');

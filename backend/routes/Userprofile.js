@@ -150,7 +150,7 @@ router.get('/properties/fav', function (req, res) {
 		console.log("yes");
 		console.log(typeof (String(req.query.prop_id)));
 		var collection = db.get('properties');
-		collection.find({ _id : String(req.query.prop_id) }, function (err, result) {
+		collection.find({ id : String(req.query.prop_id) }, function (err, result) {
 			if (err) throw err;
 			res.render('favdisplay.ejs', { props: result });
 		});

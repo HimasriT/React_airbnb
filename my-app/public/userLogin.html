@@ -199,13 +199,13 @@
           document.getElementById("login_btn").addEventListener("click",myFunction);
           function myFunction() {
             console.log("Inside the function");
-            const url = "http://localhost:9000/properties?user_id=";
+            const url = "http://localhost:9000/users/properties?user_id=";
             
             var username = document.getElementById("user_id").value;
             console.log(username);
             const query_string = url + username;
             console.log(query_string);
-          //  window.location.href=query_string;
+            window.location.href=query_string;
           }
         </script>
         

@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+    <div class="container-fluid">
+
+        <h1>Property details</h1>
+
+        <p><img src="/images/<%= pr.path %>" /></p>
+        <p>Name: <%= pr.name %>
+        </p>
+        <p>City Name: <%= pr.city_name %>
+        </p>
+        <p>Ratings: <%= pr.ratings %>
+        </p>
+        <p>Host: <%= pr.host %>
+        </p>
+        <p>Amenities: <%= pr.amenities %>
+        </p>
+        <p>Night Fee: <%= pr.night_fee %>
+        </p>
+        <p>Cleaning Fee: <%= pr.cleaning_fee %>
+        </p>
+        <p>Service Fee: <%= pr.service_fee %>
+        </p>
+        <p>No of Bedrooms: <%= pr.bedrooms %>
+        </p>
+        <p>Short Description: <%= pr.short_description %>
+        </p>
+        <p>Description: <%= pr.description %>
+        </p>
+
+        <a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id %>/edit" role="button"> Reserve
+            property</a>
+        
+        <a class="btn btn-warning" href="http://localhost:9000/properties/<%=pr._id %>/edit" role="button"> Rate
+            property</a>
+        <form action="/users/favorites/<%= pr._id %>" method="POST">
+            <div class="form-group col-md-2">
+                <button type="submit" id="add" class="btn btn-warning">Add to favorites</button>
+            </div>
+        </form>
+
+        <p>
+            <a href="/properties">Back to list</a>
+
+        </p>
+    </div>
+
+    <%- include('partials/footer') %>
